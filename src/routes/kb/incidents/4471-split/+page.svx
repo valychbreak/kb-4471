@@ -1,6 +1,6 @@
 ---
 layout: runbook
-title: '#4471 · three problems, not one'
+title: '#4471 · two problems, not one'
 owner: valychbreak
 status: proposed
 reviewed: 2026-10-29
@@ -15,7 +15,7 @@ signature: v1.eyJzdWIiOiI5MTUiLCJhdWQiOiJjaGFsbGVuZ2U6d2hhdC1pdC1zaG93cyIsImlhdC
 </script>
 
 [#4471](/kb/incidents/4471) was merged as one issue: the parser reads dates month first. That
-is true for most of its reports. It is not true for all of them. The reports hold three
+is true for most of its reports. It is not true for all of them. The reports hold two
 problems, and each has its own ticket in the
 [tickets repo](https://github.com/valychbreak/kb-4471/issues).
 
@@ -34,10 +34,8 @@ The table is computed from the report export, by the tenant's locale and booking
 | --- | --- | --- |
 | `parser` | The shared parser reads every date month first. Day-first tenants get flipped dates. | [issue 1](https://github.com/valychbreak/kb-4471/issues/1) |
 | `hint` | booking-v3 prints `MM/DD/YYYY` under the date field. People in day-first locales type it that way and the form reads it day first. Only form reports. | [issue 2](https://github.com/valychbreak/kb-4471/issues/2) |
-| one-day move | The date shifts by one day, not a month and day. The desk read these reports that way (`desk-notes.json`). It looks like a timezone or DST bug. | [issue 3](https://github.com/valychbreak/kb-4471/issues/3) |
 
-The one-day reports sit inside the `parser` row of the table, as the footnote under it says.
-The count for the `parser` ticket leaves them out, because they are a different problem.
+A few reports read as a one-day move. The desk files them under `parser` by tenant and footnotes them under the table, so the table counts them there.
 
 ## Since April
 
